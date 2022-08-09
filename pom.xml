@@ -15,6 +15,7 @@
 	<description>rest-with-springboot-and-java-erudio</description>
 	<properties>
 		<java.version>18</java.version>
+		<dozer.version>6.4.0</dozer.version>
 	</properties>
 	<dependencies>
 			<dependency>
@@ -44,6 +45,11 @@
 				<groupId>mysql</groupId>
 				<artifactId>mysql-connector-java</artifactId>
 				<version>8.0.30</version>
+			</dependency>
+			<dependency>
+				<groupId>com.github.dozermapper</groupId>
+				<artifactId>dozer-core</artifactId>
+				<version>${dozer.version}</version>
 			</dependency>
 	</dependencies>
 
