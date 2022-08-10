@@ -1,8 +1,10 @@
 package br.com.erudio.services;
 
 import br.com.erudio.data.vo.v1.PersonVO;
+import br.com.erudio.data.vo.v2.PersonVOV2;
 import br.com.erudio.exceptions.ResourceNotFoundException;
 import br.com.erudio.mapper.DozerMapper;
+import br.com.erudio.mapper.custom.PersonMapper;
 import br.com.erudio.models.Person;
 import br.com.erudio.repositories.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +20,9 @@ public class PersonServices {
     @Autowired
     PersonRepository repository;
 
+    @Autowired
+    PersonMapper mapper;
+
     public List<br.com.erudio.data.vo.v1.PersonVO> findAll() {
         logger.info("[LOG SERVICE] - Finding all people!");
         return DozerMapper.parseListObjects(repository.findAll(), br.com.erudio.data.vo.v1.PersonVO.class)  ;
@@ -31,10 +36,17 @@ public class PersonServices {
         return DozerMapper.parseObject(entity, br.com.erudio.data.vo.v1.PersonVO.class);
     }
 
-    public br.com.erudio.data.vo.v1.PersonVO create(br.com.erudio.data.vo.v1.PersonVO person) {
+    public PersonVO create(PersonVO person) {
         logger.info("[LOG SERVICE] - Creating one person!");
         var entity = DozerMapper.parseObject(person, Person.class);
-        var vo = DozerMapper.parseObject(repository.save(entity), br.com.erudio.data.vo.v1.PersonVO.class);
+        var vo = DozerMapper.parseObject(repository.save(entity), PersonVO.class);
+
+        return vo;
+    }
+    public PersonVOV2 createV2(PersonVOV2 person) {
+        logger.info("[LOG SERVICE] - Creating one person with V2!");
+        var entity = mapper.convertVoToEntity(person);
+        var vo = mapper.convertEntityToVo(repository.save(entity));
 
         return vo;
     }
