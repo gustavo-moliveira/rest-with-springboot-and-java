@@ -1,5 +1,6 @@
 package br.com.erudio.unittests.mapper;
 
+import br.com.erudio.data.vo.v1.PersonVO;
 import br.com.erudio.mapper.DozerMapper;
 import br.com.erudio.models.Person;
 import org.junit.jupiter.api.BeforeEach;
@@ -20,7 +21,7 @@ public class DozerConverterTest {
 
     @Test
     public void parseEntityToVOTest() {
-        br.com.erudio.data.vo.v1.PersonVO output = DozerMapper.parseObject(inputObject.mockEntity(), br.com.erudio.data.vo.v1.PersonVO.class);
+        PersonVO output = DozerMapper.parseObject(inputObject.mockEntity(), PersonVO.class);
         assertEquals(Long.valueOf(0L), output.getKey());
         assertEquals("First Name Test0", output.getFirstName());
         assertEquals("Last Name Test0", output.getLastName());
@@ -30,24 +31,24 @@ public class DozerConverterTest {
 
     @Test
     public void parseEntityListToVOListTest() {
-        List<br.com.erudio.data.vo.v1.PersonVO> outputList = DozerMapper.parseListObjects(inputObject.mockEntityList(), br.com.erudio.data.vo.v1.PersonVO.class);
-        br.com.erudio.data.vo.v1.PersonVO outputZero = outputList.get(0);
+        List<PersonVO> outputList = DozerMapper.parseListObjects(inputObject.mockEntityList(), PersonVO.class);
+        PersonVO outputZero = outputList.get(0);
         
         assertEquals(Long.valueOf(0L), outputZero.getKey());
         assertEquals("First Name Test0", outputZero.getFirstName());
         assertEquals("Last Name Test0", outputZero.getLastName());
         assertEquals("Addres Test0", outputZero.getAddress());
         assertEquals("Male", outputZero.getGender());
-        
-        br.com.erudio.data.vo.v1.PersonVO outputSeven = outputList.get(7);
+
+        PersonVO outputSeven = outputList.get(7);
         
         assertEquals(Long.valueOf(7L), outputSeven.getKey());
         assertEquals("First Name Test7", outputSeven.getFirstName());
         assertEquals("Last Name Test7", outputSeven.getLastName());
         assertEquals("Addres Test7", outputSeven.getAddress());
         assertEquals("Female", outputSeven.getGender());
-        
-        br.com.erudio.data.vo.v1.PersonVO outputTwelve = outputList.get(12);
+
+        PersonVO outputTwelve = outputList.get(12);
         
         assertEquals(Long.valueOf(12L), outputTwelve.getKey());
         assertEquals("First Name Test12", outputTwelve.getFirstName());

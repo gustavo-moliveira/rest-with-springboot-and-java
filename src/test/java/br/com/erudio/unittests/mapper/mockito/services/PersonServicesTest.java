@@ -1,4 +1,4 @@
-package br.com.erudio.unittests.mockito.services;
+package br.com.erudio.unittests.mapper.mockito.services;
 
 import br.com.erudio.data.vo.v1.PersonVO;
 import br.com.erudio.exceptions.RequiredObjectIsNullException;

@@ -1,5 +1,6 @@
 package br.com.erudio.unittests.mapper;
 
+import br.com.erudio.data.vo.v1.PersonVO;
 import br.com.erudio.models.Person;
 
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ public class MockPerson {
         return mockEntity(0);
     }
     
-    public br.com.erudio.data.vo.v1.PersonVO mockVO() {
+    public PersonVO mockVO() {
         return mockVO(0);
     }
     
@@ -24,8 +25,8 @@ public class MockPerson {
         return persons;
     }
 
-    public List<br.com.erudio.data.vo.v1.PersonVO> mockVOList() {
-        List<br.com.erudio.data.vo.v1.PersonVO> persons = new ArrayList<>();
+    public List<PersonVO> mockVOList() {
+        List<PersonVO> persons = new ArrayList<>();
         for (int i = 0; i < 14; i++) {
             persons.add(mockVO(i));
         }
@@ -42,8 +43,8 @@ public class MockPerson {
         return person;
     }
 
-    public br.com.erudio.data.vo.v1.PersonVO mockVO(Integer number) {
-        br.com.erudio.data.vo.v1.PersonVO person = new br.com.erudio.data.vo.v1.PersonVO();
+    public PersonVO mockVO(Integer number) {
+        PersonVO person = new PersonVO();
         person.setAddress("Addres Test" + number);
         person.setFirstName("First Name Test" + number);
         person.setGender(((number % 2)==0) ? "Male" : "Female");
