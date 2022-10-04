@@ -54,7 +54,6 @@ public class PersonServices {
 		vo.add(linkTo(methodOn(PersonController.class).findById(vo.getKey())).withSelfRel());
 		return vo;
 	}
-	
 	public PersonVO update(PersonVO person) {
 		if (person == null) throw new RequiredObjectIsNullException();
 		logger.info("Updating one person!");

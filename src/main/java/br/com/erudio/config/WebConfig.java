@@ -1,6 +1,6 @@
 package br.com.erudio.config;
 
-import br.com.erudio.serialization.converter.YamlJackson2HttpMessageConverter;
+import br.com.erudio.services.converter.YamlJackson2HttpMessageConverter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;

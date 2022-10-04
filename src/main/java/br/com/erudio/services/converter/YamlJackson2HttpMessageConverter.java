@@ -1,4 +1,4 @@
-package br.com.erudio.serialization.converter;
+package br.com.erudio.services.converter;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.dataformat.yaml.YAMLMapper;
@@ -11,6 +11,6 @@ public class YamlJackson2HttpMessageConverter extends AbstractJackson2HttpMessag
         super(new YAMLMapper().setSerializationInclusion(
                     JsonInclude.Include.NON_NULL),
                     MediaType.parseMediaType("application/x-yaml")
-                );
+        );
     }
 }

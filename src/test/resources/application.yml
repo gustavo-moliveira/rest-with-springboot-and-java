@@ -1,5 +1,12 @@
 cors:
   originPatterns: http://localhost:3000,http://localhost:8080,https://erudio.com.br
+file:
+  upload-dir: /Users/gmoraes/UploadDir
+security:
+  jwt:
+    token:
+      security-key: 53cr37
+      expire-length: 3600000
 server:
   port: 8888
 spring:
@@ -7,11 +14,17 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
-      ddl-auto: none
+      ddl-auto: update
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
     show-sql: false
+  servlet:
+    multipart:
+      enabled: true
+      file-size-threshold: 8KB
+      max-file-size: 200MB
+      max-request-size: 215MB
 springdoc:
   paths-to-match: /api/**/**
   swagger-ui:
